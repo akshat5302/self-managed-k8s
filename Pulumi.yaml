@@ -1,0 +1,3 @@
+name: self-managed-k8s
+runtime: python
+description: A Self Managed Kubernetes cluster on EC2 instances

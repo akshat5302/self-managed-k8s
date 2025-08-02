@@ -1,0 +1,4 @@
+config:
+  aws:region: us-west-2
+  self-managed-k8s:bucket_name: "my-self-managed-k8s-dev-bucket"
+  self-managed-k8s:region: "us-west-2"
