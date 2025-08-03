@@ -3,14 +3,14 @@ import pulumi_aws as aws
 
 class EC2Infrastructure:
     def __init__(self, name: str, vpc_id: str, private_subnet_ids: list, 
-                 key_name: str = None, instance_type_1: str = "t3.medium", 
-                 instance_type_2: str = "t3.small"):
+                 key_name: str = None, instance_type_1: str = "c7gn.large", 
+                 instance_type_2: str = "c7gn.medium"):
         self.name = name
         self.vpc_id = vpc_id
         self.private_subnet_ids = private_subnet_ids
         self.key_name = key_name
-        self.instance_type_1 = instance_type_1  # 2 vCPU, 4GB RAM
-        self.instance_type_2 = instance_type_2  # 2 vCPU, 2GB RAM
+        self.instance_type_1 = "c7gn.large"  # 2 vCPU, 4GB RAM
+        self.instance_type_2 = "c7gn.medium"  # 2 vCPU, 2GB RAM
         
         # Create security group for EC2 instances
         self.master_security_group = aws.ec2.SecurityGroup(f"{name}-master-sg",
@@ -61,7 +61,7 @@ class EC2Infrastructure:
         for i in range(1):
             subnet_id = private_subnet_ids[i % len(private_subnet_ids)]
             instance = aws.ec2.Instance(f"{name}-master-{i+1}",
-                ami="",  # Amazon Linux 2023 AMI
+                ami="ami-001991993fd5323ab",  # Amazon Linux 2023 AMI
                 instance_type=self.instance_type_1,
                 subnet_id=subnet_id,
                 vpc_security_group_ids=[self.master_security_group.id],
@@ -86,7 +86,7 @@ class EC2Infrastructure:
         for i in range(2):
             subnet_id = private_subnet_ids[(i + 1) % len(private_subnet_ids)]
             instance = aws.ec2.Instance(f"{name}-worker-{i+1}",
-                ami="ami-0c2b8ca1dad447f8a",  # Amazon Linux 2023 AMI
+                ami="ami-001991993fd5323ab",  # Amazon Linux 2023 AMI
                 instance_type=self.instance_type_2,
                 subnet_id=subnet_id,
                 vpc_security_group_ids=[self.worker_security_group.id],
