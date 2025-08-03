@@ -10,7 +10,7 @@ class EC2Infrastructure:
         self.private_subnet_ids = private_subnet_ids
         self.key_name = key_name
         self.instance_type_1 = "c7gn.large"  # 2 vCPU, 4GB RAM
-        self.instance_type_2 = "c7gn.medium"  # 2 vCPU, 2GB RAM
+        self.instance_type_2 = "c6g.medium"  # 2 vCPU, 2GB RAM
         
         # Create security group for EC2 instances
         self.master_security_group = aws.ec2.SecurityGroup(f"{name}-master-sg",
