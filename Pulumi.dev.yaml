@@ -1,5 +1,11 @@
 config:
-  self-managed-k8s:bucket_name: random-bucket-akshat-sre
-  self-managed-k8s:region: "us-east-1"
+  self-managed-k8s:vpc_name: k8s-cluster
+  self-managed-k8s:vpc_cidr: "10.0.0.0/16"
+  self-managed-k8s:public_subnet_1_cidr: "10.0.1.0/24"
+  self-managed-k8s:public_subnet_2_cidr: "10.0.2.0/24"
+  self-managed-k8s:private_subnet_1_cidr: "10.0.11.0/24"
+  self-managed-k8s:private_subnet_2_cidr: "10.0.12.0/24"
+  self-managed-k8s:instance_type_1: "c7gn.large"
+  self-managed-k8s:instance_type_2: "c7gn.medium"
   aws:region: us-east-1
 encryptionsalt: v1:RGAlN1mncEE=:v1:YGIF+x5/NSd/dDYP:X5AzPpxMLowBLAb+CKzEMmAx0j1rOw==
