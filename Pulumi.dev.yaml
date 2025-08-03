@@ -1,4 +1,5 @@
 config:
-  aws:region: us-west-2
-  self-managed-k8s:bucket_name: "my-self-managed-k8s-dev-bucket"
-  self-managed-k8s:region: "us-west-2"
+  self-managed-k8s:bucket_name: random-bucket-akshat-sre
+  self-managed-k8s:region: "us-east-1"
+  aws:region: us-east-1
+encryptionsalt: v1:RGAlN1mncEE=:v1:YGIF+x5/NSd/dDYP:X5AzPpxMLowBLAb+CKzEMmAx0j1rOw==

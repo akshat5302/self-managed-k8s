@@ -69,3 +69,7 @@ After deployment, you'll get:
 - `bucket_arn`: The ARN of the bucket
 - `bucket_region`: The region where the bucket is located
 - `bucket_domain_name`: The domain name for the bucket
+
+### S3 Backend
+`pulumi config set aws:region us-east-1`
+`pulumi login s3://pulumi-remote-state-backend`
